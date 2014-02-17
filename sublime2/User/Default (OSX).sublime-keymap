@@ -1,2 +1,8 @@
 [
+    { "keys": ["alr+m"], "command": "markdown_preview", "args": {"target": "browser"} },
+//    { "keys": ["super+shift+v"], "command": "paste_and_indent" }, 
+//    { "keys": ["super+v"], "command": "paste" },
+    { "keys": ["tab"], "command": "insert", "args": {"characters": "\t"} },
+    { "keys": ["ctrl+alt+g"], "command": "show_overlay", "args": {"overlay":"goto", "show_files" : false, "text": "@"}},
+    { "keys": ["ctrl+super+g"], "command": "show_overlay", "args": {"overlay":"goto", "show_files" : false, "text": ":"}}
 ]
