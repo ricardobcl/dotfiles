@@ -1,0 +1,8 @@
+;;; This is the previous emacs frame's geometry.
+;;; Last generated Fri Feb 14 18:58:47 2014.
+(setq initial-frame-alist
+      '(
+        (top . 22)
+        (left . 0)
+        (width . 136)
+        (height . 47)))
