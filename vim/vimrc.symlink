@@ -1,4 +1,6 @@
+" http://www.danielmiessler.com/study/vim/
+inoremap jk <ESC>
+let mapleader = ","
+filetype plugin indent on
 syntax on
-
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+set encoding=utf-8
