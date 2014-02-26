@@ -2,7 +2,7 @@
 	"bold_folder_labels": true,
 	"caret_style": "phase",
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
-	"dictionary": "Packages/Languages/en_US.dic",
+	"dictionary": "Packages/Language - English/en_US.dic",
 	"draw_white_space": "all",
 	"font_face": "Consolas",
 	"font_size": 14.0,
