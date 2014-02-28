@@ -10,13 +10,6 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"SublimeCodeIntel",
-		"Vintage",
-		"SQL",
-		"GoSublime",
-		"SublimErl",
-		"SublimeREPL",
-		"SublimeLinter"
 	],
 	"phoenix_color_orange": true,
 	"phoenix_highlight_current_tab": true,
