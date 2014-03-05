@@ -9,5 +9,6 @@
     { "keys": ["ctrl+super+g"], "command": "show_overlay", "args": {"overlay":"goto", "show_files" : false, "text": ":"}},
     { "keys": ["super+f"], "command": "move", "args": {"by": "wordends", "forward": true}},
     { "keys": ["super+b"], "command": "move", "args": {"by": "wordends", "forward": false}},
-    { "keys": ["super+q"], "command": "wrap_lines"}
+    { "keys": ["super+q"], "command": "wrap_lines"},
+    { "keys": ["super+ctrl+b"], "command": "build"}
 ]
