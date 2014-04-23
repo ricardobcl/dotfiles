@@ -19,6 +19,7 @@
 		80,
 		120
 	],
+	"auto_wrap" : true,
 	"scroll_past_end": true,
 	"spell_check": true,
 	"tab_size": 4,

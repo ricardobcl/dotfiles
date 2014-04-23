@@ -10,5 +10,9 @@
     { "keys": ["super+f"], "command": "move", "args": {"by": "wordends", "forward": true}},
     { "keys": ["super+b"], "command": "move", "args": {"by": "wordends", "forward": false}},
     { "keys": ["super+q"], "command": "wrap_lines"},
-    { "keys": ["super+ctrl+b"], "command": "build"}
+    { "keys": ["super+ctrl+b"], "command": "build"},
+    { "keys": ["ctrl+s"], "command": "show_panel", "args": {"panel": "find"} },
+    { "keys": ["super+d"], "command": "sbp_delete_word", "args": {"forward": true}},
+    { "keys": ["ctrl+right"], "command": "next_view"},
+    { "keys": ["ctrl+left"], "command": "prev_view"}
 ]
