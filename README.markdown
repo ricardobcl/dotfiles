@@ -23,6 +23,7 @@ script/bootstrap
 chsh -s /bin/zsh
 bin/dot
 sublime2/setup
+homebrew/install
 _maybe_ script/install
 ```
 

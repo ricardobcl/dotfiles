@@ -4,7 +4,7 @@
 	"caret_style": "phase",
 	"color_inactive_tabs": true,
 	"color_scheme": "Packages/Theme - Afterglow/Afterglow.tmTheme",
-	"dictionary": "Packages/Languages/en_US.dic",
+	"dictionary": "Packages/Language - English/en_US.dic",
 	"draw_white_space": "all",
 	"font_face": "Consolas",
 	"font_size": 15.0,

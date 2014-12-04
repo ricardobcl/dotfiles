@@ -13,7 +13,8 @@ then
 fi
 
 # Install homebrew packages
-brew install grc coreutils spark
+brew update
+brew install grc coreutils rlwrap erlang r
 
 #Installed as of 16-02-14
 
