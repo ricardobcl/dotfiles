@@ -14,7 +14,9 @@ fi
 
 # Install homebrew packages
 brew update
+brew tap homebrew/science
 brew install grc coreutils rlwrap erlang r
+# error installing R -> download https://xquartz.macosforge.org
 
 #Installed as of 16-02-14
 
