@@ -8,6 +8,10 @@
 # Set OS X defaults
 $ZSH/osx/set-defaults.sh
 
+# Configure Sublime Text 2
+# It must be already installed and with the package manager already installed also!
+$ZSH/sublime2/setup
+
 # Upgrade homebrew
 brew update
 

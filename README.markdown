@@ -22,9 +22,6 @@ cd ~/.dotfiles
 script/bootstrap
 chsh -s /bin/zsh
 bin/dot
-sublime2/setup
-homebrew/install
-osx/set-defaults.sh
 
 _maybe_ script/install
 ```
