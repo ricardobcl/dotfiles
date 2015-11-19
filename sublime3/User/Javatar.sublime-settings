@@ -1,0 +1,62 @@
+{
+	"javatar_gp": 0,
+	"jdk_version":
+	{
+		"JDK1.8.0u60":
+		{
+			"path": "/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/bin",
+			"update": "60",
+			"version": "1.8.0"
+		},
+		"use": ""
+	},
+	"message_id": 20,
+	"project_data":
+	{
+		"2":
+		{
+			"folders":
+			[
+				{
+					"path": "/Users/ricardo/github/BasicDB"
+				}
+			]
+		},
+		"3":
+		{
+			"folders":
+			[
+				{
+					"path": "/Users/ricardo/github/basho_bench"
+				}
+			]
+		},
+		"4":
+		{
+			"folders":
+			[
+				{
+					"path": "/Users/ricardo/github/basho_bench"
+				}
+			]
+		},
+		"6":
+		{
+			"folders":
+			[
+				{
+					"path": "/Users/ricardo/github/YCSB"
+				}
+			]
+		},
+		"7":
+		{
+			"folders":
+			[
+				{
+					"path": "/Users/ricardo/github/DottedDB"
+				}
+			]
+		}
+	}
+}
