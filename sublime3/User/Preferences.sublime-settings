@@ -1,16 +1,25 @@
 {
+	"added_words":
+	[
+		"metadata",
+		"Merkle"
+	],
 	"auto_wrap": false,
 	"bold_folder_labels": true,
 	"caret_style": "phase",
 	"color_inactive_tabs": true,
+	"color_scheme": "Packages/User/SublimeLinter/monokai-best (SL).tmTheme",
 	"dictionary": "Packages/Language - English/en_US.dic",
 	"draw_white_space": "all",
-	"font_face": "Consolas",
-	"font_size": 14.0,
+	"font_face": "Hack",
+	"font_size": 13.0,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
+		"SublimeLinter",
+		"SublimeLinter-contrib-elixirc",
+		"SublimeLinter-contrib-erlc",
 		"Vintage"
 	],
 	"ignored_words":
@@ -55,12 +64,11 @@
 		120
 	],
 	"scroll_past_end": true,
-	"sidebar_size_13": true,
+	"sidebar_size_12": true,
 	"spell_check": true,
 	"status_bar_brighter": true,
 	"tab_size": 4,
-	"tabs_medium": true,
+	"tabs_small": true,
 	"theme": "Brogrammer.sublime-theme",
-	"color_scheme": "Packages/Theme - Brogrammer/brogrammer.tmTheme",
 	"translate_tabs_to_spaces": true
 }
