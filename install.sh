@@ -4,6 +4,7 @@ echo "Installing dotfiles"
 
 echo "Initializing submodule(s)"
 git submodule update --init --recursive
+# git submodule add https://github.com/chriskempson/base16-shell .config/base16-shell
 
 source install/link.sh
 
