@@ -1,0 +1,69 @@
+# gitconfig
+[user]
+    name = Ricardo Gonçalves
+    email = tome.wave@gmail.com
+[github]
+    user = ricardobcl
+[alias]
+    diff = diff --ignore-space-at-eol -b -w --ignore-blank-lines
+    co = checkout
+    cob = checkout -b
+    s = status --short
+    ss  = status
+    br = branch -v
+    # show number of commits per contributer, sorted
+    count = shortlog -sn
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+    ui = true
+[color "branch"]
+    current = green bold
+    local = green
+    remote = red bold
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = green bold
+    changed = yellow bold
+    untracked = red
+[color "sh"]
+    branch = yellow
+[push]
+    # push will only do the current branch, not all branches
+    default = current
+[branch]
+    # set up 'git pull' to rebase instead of merge
+    autosetuprebase = always
+[diff]
+    renames = copies
+    mnemonicprefix = true
+[difftool]
+    prompt = false
+[apply]
+    # do not warn about missing whitespace at EOF
+    whitespace = nowarn
+[core]
+    excludesfile = ~/.gitignore_global
+    pager = less -FXRS -x2
+    editor = vim
+[rerere]
+    enabled = true
+[gitsh]
+    defaultCommand = s
+[grep]
+    extendRegexp = true
+    lineNumber = true
+[credential]
+    helper = osxkeychain
+
+# [difftool "Kaleidoscope"]
+#     cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+# [mergetool "Kaleidoscope"]
+#     cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+#     trustexitcode = true

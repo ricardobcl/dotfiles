@@ -4,10 +4,10 @@ call plug#begin('~/.config/nvim/plugged')
 
 " colorschemes
 Plug 'chriskempson/base16-vim'
-
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] } | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasis/vim-devicons'
-
 Plug 'benmills/vimux'
+Plug 'kien/ctrlp.vim'
+Plug 'bling/vim-airline'
 
 call plug#end()
 

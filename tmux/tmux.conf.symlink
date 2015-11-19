@@ -16,6 +16,9 @@ bind C-a send-prefix
 # for nested tmux sessions
 bind-key a send-prefix
 
+# For tmux-MacOSX-pasteboard
+set-option -g default-command "reattach-to-user-namespace -l zsh"
+
 # Activity Monitoring
 setw -g monitor-activity off
 set -g visual-activity off
