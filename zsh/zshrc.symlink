@@ -21,8 +21,8 @@ fi
 
 
 # initialize autocomplete
-autoload -U compinit
-compinit
+# autoload -U compinit
+# compinit
 
 export EDITOR='nvim'
 
@@ -45,9 +45,9 @@ fi
 
 
 # Base16 Shell
-# if [ -z "$THEME" ]; then
+if [ -z "$THEME" ]; then
     export THEME="base16-eighties"
-# fi
+fi
 if [ -z "$BACKGROUND" ]; then
     export BACKGROUND="dark"
 fi
@@ -56,3 +56,30 @@ BASE16_SHELL="$DOTFILES/.config/base16-shell/$THEME.$BACKGROUND.sh"
 # [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 source $BASE16_SHELL
 
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+
+# default user set to the local user so that 'ricardo'at'..' doesn't appear in my theme
+export DEFAULT_USER=ricardo
+
+## Alias
+
+# tmux
+alias tma='tmux attach -d -t'
+alias tml='tmux list-sessions'
+alias tmd='tmux detach'
+
+alias vim='nvim'
+
+unsetopt nomatch

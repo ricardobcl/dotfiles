@@ -1,4 +1,11 @@
-set -g default-command "reattach-to-user-namespace -l zsh"
+# set -g or set-option -g -> set global tmux option
+# setw -g or set-window-option -> the same as above but for windows options
+# bind/unbind or bind-key/unbind-key -> bind or unbind a key (used with the prefix)
+#	if we use -n with bind/unbing, we don't use prefix
+#	use \; to bind to multiple commands
+#	use send-prefix in the end of a bind to let that key through tmux (to vim for example)
+#  	use -r to say that we can repeat the key without repeating the prefix for 500ms by default
+
 # tmux display things in 256 colors
 set -g default-terminal "screen-256color"
 set -g status-utf8 on
@@ -8,45 +15,43 @@ set -g history-limit 20000
 # automatically renumber tmux windows
 set -g renumber-windows on
 
-# unbind default prefix and set it to Ctrl+a
+# unbind default prefix
 unbind C-b
+# and set it to Ctrl+a
 set -g prefix C-a
+# allow C-a to be passed "down", to vim, for example
 bind C-a send-prefix
 
 # for nested tmux sessions
-bind-key a send-prefix
+bind a send-prefix
 
 # For tmux-MacOSX-pasteboard
-set-option -g default-command "reattach-to-user-namespace -l zsh"
+# this sets the default command to run when creating a window
+set -g default-command "reattach-to-user-namespace -l zsh"
 
-# Activity Monitoring
-setw -g monitor-activity off
-set -g visual-activity off
+# Window Activity Monitoring
+setw -g monitor-activity on
+set -g visual-activity on
 
 # Rather than constraining window size to the maximum size of any client
 # connected to the *session*, constrain window size to the maximum size of any
 # client connected to *that window*. Much more reasonable.
 setw -g aggressive-resize on
 
-# make delay shorter
+# make the tmux induced delay shorter
 set -sg escape-time 0
 
 # tile all windows
 unbind =
 bind = select-layout tiled
 
-# cycle through panes
-# unbind C-a
-# unbind o # this is the default key for cycling panes
-# bind ^A select-pane -t:.+
-
 # make window/pane index start with 1
 set -g base-index 1
 setw -g pane-base-index 1
 
-set-option -g set-titles on
-set-option -g set-titles-string "#T - #W"
-# set-window-option -g automatic-rename on
+set -g set-titles on
+set -g set-titles-string "#T - #W"
+# set -g automatic-rename on
 
 ######################
 #### Key Bindings ####
@@ -55,9 +60,6 @@ set-option -g set-titles-string "#T - #W"
 # reload config file
 bind r source-file ~/.tmux.conf \; display "Config Reloaded!"
 
-# quickly open a new window
-bind N new-window
-
 # split window and fix path for tmux 1.9
 bind | split-window -h -c "#{pane_current_path}"
 bind - split-window -v -c "#{pane_current_path}"
@@ -65,45 +67,47 @@ bind - split-window -v -c "#{pane_current_path}"
 # synchronize all panes in a window
 bind y setw synchronize-panes
 
-# pane movement shortcuts
+# vim-like pane movement shortcuts
 bind h select-pane -L
 bind j select-pane -D
 bind k select-pane -U
 bind l select-pane -R
 
+# Resize pane by 5 lines a time
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+
+# Use vim-like left and right to move withing windows
 bind -r C-h select-window -t :-
 bind -r C-l select-window -t :+
 
-# Resize pane shortcuts
-bind -r H resize-pane -L 10
-bind -r J resize-pane -D 10
-bind -r K resize-pane -U 10
-bind -r L resize-pane -R 10
+# disable mouse support for switching panes/windows (not supperted anymore?)
+# setw -g mouse-mode off
 
-# enable mouse support for switching panes/windows
-setw -g mouse on
-# set-option -g -q mouse on
+# make the current pane more noticable (or not..)
+set -g pane-active-border-bg default
 
-bind-key -T root PPage if-shell -F "#{alternate_on}" "send-keys PPage" "copy-mode -e; send-keys PPage"
-bind-key -t vi-copy PPage page-up
-bind-key -t vi-copy NPage page-down
+# customize status bar
+# at this moment, it being done by tmuxline-vim
+set -g status-justify centre
 
-bind -T root WheelUpPane if-shell -F -t = "#{alternate_on}" "select-pane -t =; send-keys -M" "select-pane -t =; copy-mode -e; send-keys -M"
-bind -T root WheelDownPane if-shell -F -t = "#{alternate_on}" "select-pane -t =; send-keys -M" "select-pane -t =; send-keys -M"
-bind-key -t vi-copy WheelUpPane halfpage-up
-bind-key -t vi-copy WheelDownPane halfpage-down
+# bind -T root PPage if-shell -F "#{alternate_on}" "send-keys PPage" "copy-mode -e; send-keys PPage"
+# bind -t vi-copy PPage page-up
+# bind -t vi-copy NPage page-down
 
-# maximizing and restoring windows
-unbind Up
-bind Up new-window -d -n fullscreen \; swap-pane -s fullscreen.1 \; select-window -t fullscreen
-unbind Down
-bind Down last-window \; swap-pane -s fullscreen.1 \; kill-window -t fullscreen
+# bind -T root WheelUpPane if-shell -F -t = "#{alternate_on}" "select-pane -t =; send-keys -M" "select-pane -t =; copy-mode -e; send-keys -M"
+# bind -T root WheelDownPane if-shell -F -t = "#{alternate_on}" "select-pane -t =; send-keys -M" "select-pane -t =; send-keys -M"
+# bind -t vi-copy WheelUpPane halfpage-up
+# bind -t vi-copy WheelDownPane halfpage-down
 
 # set vi mode for copy mode
 setw -g mode-keys vi
 # more settings to make copy-mode more vim-like
 unbind [
 bind Escape copy-mode
+unbind ]
 unbind p
 bind p paste-buffer
 bind -t vi-copy 'v' begin-selection
@@ -113,31 +117,18 @@ bind -t vi-copy 'y' copy-selection
 bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
 bind C-v run "tmux set-buffer $(reattach-to-user-namespace pbpaste); tmux paste-buffer"
 
-##############################
-### Color & Style Settings ###
-##############################
 
-source ~/.dotfiles/tmux/theme.sh
-
-
-# Last saved environment is automatically restored when tmux is started.
-set -g @continuum-restore 'on'
-# Save every 30 minutes.
-set -g @continuum-save-interval '30'
+# source ~/.dotfiles/tmux/theme.sh
 
 # List of plugins
-# Supports `github_username/repo` or full git repo URLs
-set -g @tpm_plugins '              \
-  tmux-plugins/tpm                 \
+# set -g @tpm_plugins '              \
+  # tmux-plugins/tpm                 \
 #  tmux-plugins/tmux-sensible       \
-  tmux-plugins/tmux-resurrect      \
-  tmux-plugins/tmux-continuum      \
+  # tmux-plugins/tmux-resurrect      \
+  # tmux-plugins/tmux-continuum      \
 '
-# Other examples:
-# github_username/plugin_name    \
-# git@github.com/user/plugin     \
-# git@bitbucket.com/user/plugin  \
 
 # Initializes TMUX plugin manager.
 # Keep this line at the very bottom of tmux.conf.
-run-shell '~/.tmux/plugins/tpm/tpm'
+# run-shell '~/.tmux/plugins/tpm/tpm'
+
