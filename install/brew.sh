@@ -5,26 +5,26 @@ if test ! $(which brew); then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
+# update homebrew
 brew update
 
 echo "Installing homebrew packages..."
 
 # cli tools
 brew install wget
-
+brew install htop
 
 # development tools
 brew install git
-brew install macvim --override-system-vim
-brew install reattach-to-user-namespace
 brew install tmux
 brew install zsh
 brew install highlight
 brew install markdown
 brew install rlwrap
+brew install ack # better search inside files
 
 # install neovim
-brew install neovim/neovim/neovim
+# brew install neovim/neovim/neovim
 
 # installed as of 19-11-2015
 

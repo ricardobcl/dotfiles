@@ -1,21 +1,21 @@
 #!/usr/bin/env sh
 
-# Always open everything in Finder's list view. This is important.
+echo "Always open everything in Finder's list view"
 defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 
-# echo "Finder: show all filename extensions"
+echo "show all filename extensions"
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
-# echo "show hidden files by default"
+echo "show hidden files by default"
 defaults write com.apple.Finder AppleShowAllFiles -bool false
 
-# echo "only use UTF-8 in Terminal.app"
+echo "only use UTF-8 in Terminal.app"
 defaults write com.apple.terminal StringEncodings -array 4
 
-# echo "expand save dialog by default"
+echo "expand save dialog by default"
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 
-# echo "show the ~/Library folder in Finder"
+echo "show the ~/Library folder in Finder"
 chflags nohidden ~/Library
 
 # echo "disable resume system wide"
@@ -42,7 +42,7 @@ defaults write NSGlobalDomain AppleFontSmoothing -int 2
 # Disable menu bar transparency
 #defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 
-# Show remaining battery time; hide percentage
+echo "Show remaining battery time; hide percentage"
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 # defaults write com.apple.menuextra.battery ShowTime -string "YES"
 
@@ -67,7 +67,7 @@ defaults write com.apple.finder ShowStatusBar -bool true
 # echo "Expand print panel by default"
 # defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 
-#echo "Disable the “Are you sure you want to open this application?” dialog"
+echo "Disable the “Are you sure you want to open this application?” dialog"
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 #echo "Disable shadow in screenshots"
@@ -79,7 +79,7 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 # echo "Enable spring loading for all Dock items"
 # defaults write enable-spring-load-actions-on-all-items -bool true
 
-# echo "Show indicator lights for open applications in the Dock"
+echo "Show indicator lights for open applications in the Dock"
 defaults write com.apple.dock show-process-indicators -bool true
 
 # Don’t animate opening applications from the Dock
@@ -98,7 +98,7 @@ defaults write NSGlobalDomain KeyRepeat -int 1
 echo "Set a shorter Delay until key repeat"
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
-#echo "Disable auto-correct"
+echo "Disable auto-correct"
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 # Disable opening and closing window animations
@@ -117,10 +117,10 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # echo "Display full POSIX path as Finder window title"
 # defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
-# Increase window resize speed for Cocoa applications
+echo "Increase window resize speed for Cocoa applications"
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
-# echo "Avoid creating .DS_Store files on network volumes"
+echo "Avoid creating .DS_Store files on network volumes"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
 # echo "Disable the warning when changing a file extension"
@@ -129,7 +129,7 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 # echo "Show item info below desktop icons"
 # /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
 
-# echo "Enable snap-to-grid for desktop icons"
+echo "Enable snap-to-grid for desktop icons"
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
 # echo "Disable the warning before emptying the Trash"
@@ -194,7 +194,7 @@ defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 #echo "Reset Launchpad"
 #[ -e ~/Library/Application\ Support/Dock/*.db ] && rm ~/Library/Application\ Support/Dock/*.db
 
-# echo "Disable local Time Machine backups"
+echo "Disable local Time Machine backups"
 hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 #echo "Remove Dropbox’s green checkmark icons in Finder"
