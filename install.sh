@@ -15,7 +15,13 @@ if [ "$(uname)" == "Darwin" ]; then
 
 fi
 
+echo "Configuring git colors"
+source git/gitconfig.sh
+
 echo "Configuring zsh as default shell"
 chsh -s $(which zsh)
+
+echo "Downloading iTerm theme"
+curl -O https://raw.githubusercontent.com/MartinSeeler/iterm2-material-design/master/material-design-colors.itermcolors
 
 echo "Done."

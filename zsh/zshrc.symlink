@@ -4,25 +4,12 @@ export ZSH=$DOTFILES/zsh
 # display how long all tasks over 10 seconds take
 export REPORTTIME=10
 
-[[ -e ~/.terminfo ]] && export TERMINFO_DIRS=~/.terminfo:/usr/share/terminfo
-
-# define the code directory
-# This is where my code exists and where I want the `c` autocomplete to work from exclusively
-if [[ -d ~/code ]]; then
-    export CODE_DIR=~/github
-fi
-
 # source all .zsh files inside of the zsh/ directory
 for config ($ZSH/**/*.zsh) source $config
 
 if [[ -a ~/.localrc ]]; then
     source ~/.localrc
 fi
-
-
-# initialize autocomplete
-# autoload -U compinit
-# compinit
 
 export EDITOR='vim'
 
@@ -34,7 +21,7 @@ if [[ -d /usr/local/sbin ]]; then
 fi
 
 # adding path directory for custom scripts
-export PATH=$DOTFILES/bin:$PATH
+# export PATH=$DOTFILES/bin:$PATH
 
 # check for custom bin directory and add to path
 if [[ -d ~/bin ]]; then
@@ -44,28 +31,34 @@ fi
 [ -z "$TMUX" ] && export TERM=xterm-256color
 
 
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
-# Customize to your needs...
-
 # default user set to the local user so that 'ricardo'at'..' doesn't appear in my theme
 export DEFAULT_USER=ricardo
 
-## Alias
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# tmux
-alias tma='tmux attach -d -t'
-alias tml='tmux list-sessions'
-alias tmd='tmux detach'
 
-unsetopt nomatch
+####################
+## Antigen config ##
+####################
+
+source /usr/local/share/antigen/antigen.zsh
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+antigen bundle pip
+antigen bundle command-not-found
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Autocomplete
+antigen bundle zsh-users/zsh-autosuggestions
+
+# Load the theme.
+antigen theme robbyrussell
+
+# Tell Antigen that you're done.
+antigen apply

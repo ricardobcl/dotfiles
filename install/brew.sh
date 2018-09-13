@@ -10,49 +10,36 @@ brew update
 
 echo "Installing homebrew packages..."
 
+
+echo "Install Inconsolata Font for Terminal"
+brew install homebrew/cask-fonts/font-inconsolata
+
 # cli tools
 brew install wget
-brew install htop
 
 # development tools
 brew install git
 brew install tmux
 brew install zsh
-brew install highlight
+brew install antigen # managing zsh plugins
 brew install markdown
-brew install rlwrap
-brew install ack # better search inside files
 
-# install neovim
-# brew install neovim/neovim/neovim
+# improved cli tools from this article:
+# https://remysharp.com/2018/08/23/cli-improved
 
-# installed as of 19-11-2015
-
-# asciidoc                        gdb                             libffi                          protobuf
-# autoconf                        gdbm                            libgit2                         py2cairo
-# automake                        gdk-pixbuf                      libmpc                          python
-# boost                           gettext                         libpng                          r
-# boot2docker                     gflags                          librsvg                         rbenv
-# brew-cask                       ghc                             libssh2                         rbenv-bundler
-# cairo                           git                             libtiff                         readline
-# cloog                           glib                            libtool                         reattach-to-user-namespace
-# cmake                           glog                            libyaml                         rebar
-# coreutils                       gmp                             little-cms2                     rebar3
-# cscope                          gnupg                           lua                             rlwrap
-# csshx                           gnuplot                         macvim                          ruby
-# devil                           gobject-introspection           makedepend                      ruby-build
-# docbook                         graphviz                        matplotlib                      rust
-# docker                          grc                             maven                           sqlite
-# elixir                          harfbuzz                        mpfr                            tmux
-# emacs-mac                       htop-osx                        neovim                          unixodbc
-# erlang                          icu4c                           netcat                          vim
-# exercism                        imagemagick                     node                            wakeonlan
-# fftw                            intltool                        numpy                           webp
-# fish                            isl                             openssl                         wget
-# fontconfig                      jpeg                            pango                           wxmac
-# freeglut                        keybase                         pcre                            xz
-# freetype                        kjell                           pixman                          zlib
-# gcc                             libcroco                        pkg-config
-# gd                              libevent                        postgresql
+brew install bat # a better cat
+brew install fzf # a better ctrl-r for fuzzy search in terminal
+# To install useful key bindings and fuzzy completion:
+$(brew --prefix)/opt/fzf/install
+brew install htop # a better top
+brew install diff-so-fancy # a better diff, spefically for 'git diff'
+brew install fd # a better find
+brew install ncdu # a better du
+brew install tldr # a better man
+# brew install ack # a better ag and grep
+brew install ripgrep # better than ack?
+brew install jq # parsing JSON
+brew install exa # a better ls
+brew install httpie # a better curl/wget
 
 exit 0
