@@ -19,6 +19,7 @@ echo "Configuring git colors"
 source git/gitconfig.sh
 
 echo "Configuring zsh as default shell"
+sudo echo "$(which zsh)" >> /etc/shells
 chsh -s $(which zsh)
 
 echo "Downloading iTerm theme"
